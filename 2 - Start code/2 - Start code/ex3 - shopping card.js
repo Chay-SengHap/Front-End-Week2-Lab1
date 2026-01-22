@@ -77,7 +77,9 @@ function removeProductFromCart(productId) {
       return item
     }
   })
-
+  if(!product){
+    return;
+  }
   if(product.quantity >= 2){
     product.quantity--;
   }else if(product.quantity ==1){
@@ -108,5 +110,5 @@ removeProductFromCart(1);
 console.log(JSON.stringify(SHOPPING_CART)); //  Shoud be    [{"id":1,"quantity":2},{"id":3,"quantity":1},{"id":2,"quantity":1}]
 
 // test 5  -
-removeProductFromCart(2);
+removeProductFromCart(6);
 console.log(JSON.stringify(SHOPPING_CART)); //  Shoud be    [{"id":1,"quantity":2},{"id":3,"quantity":1}]
